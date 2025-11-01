@@ -109,13 +109,13 @@ Capitalizar ticket premium do segmento cash (potencial 3-5% uplift geral)
 
 | Rank | Produto               | Receita (UAH) | % Receita | % Receita Acum.  | Classe | Quantidade  |
 |------|-----------------------|---------------|-----------|------------------|--------|-------------|
-| 1    | Latte                 | 7.696,34      | 23,28%    | 23,28%           | A      | 2.032       |
-| 2    | Americano com Leite   | 7.457,22      | 22,55%    | 45,83%           | A      | 2.273       |
-| 3    | Cappuccino            | 6.709,56      | 20,29%    | 66,12%           | A      | 1.774       |
-| 4    | Americano             | 4.092,06      | 12,38%    | 78,50%           | A      | 1.455       |
-| 5    | Hot Chocolate         | 2.680,02      | 8,10%     | 86,60%           | B      | 716         |
-| 6    | Cortado               | 2.445,82      | 7,40%     | 94,00%           | B      | 867         |
-| 7    | Cocoa                 | 1.066,20      | 3,22%     | 97,22%           | C      | 288         |
+| 1    | Latte                 | 7.696,34      | 23,28%    | 23,28%           | A      | 203         |
+| 2    | Americano com Leite   | 7.457,22      | 22,55%    | 45,83%           | A      | 227         |
+| 3    | Cappuccino            | 6.709,56      | 20,29%    | 66,12%           | A      | 177         |
+| 4    | Americano             | 4.092,06      | 12,38%    | 78,50%           | A      | 145         |
+| 5    | Hot Chocolate         | 2.680,02      | 8,10%     | 86,60%           | B      | 71          |
+| 6    | Cortado               | 2.445,82      | 7,40%     | 94,00%           | B      | 86          |
+| 7    | Cocoa                 | 1.066,20      | 3,22%     | 97,22%           | C      | 28          |
 | 8    | Espresso              | 919,42        | 2,78%     | 100,00%          | C      | 39          |
 
 ### Resumo por Classe
