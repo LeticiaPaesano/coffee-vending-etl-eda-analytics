@@ -1,16 +1,60 @@
-# React + Vite
+<img width="1536" height="1024" alt="ChatGPT Image 13 de nov  de 2025, 15_17_05" src="https://github.com/user-attachments/assets/cfc9473c-de20-48b4-aaa1-60ac1ff52d2f" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ☕ Coffee Vending Dashboard
 
-Currently, two official plugins are available:
+Dashboard interativo desenvolvido com **React**, **Vite** e **Tailwind CSS** para análise das vendas automatizadas de café.  
+O projeto conecta os dados processados em Python (ETL e EDA) a uma interface web dinâmica.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌐 Acesse o Dashboard Online
+🔗 [https://leticiapaesano.github.io/coffee-vending-etl-eda-analytics/](https://leticiapaesano.github.io/coffee-vending-etl-eda-analytics/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📊 Principais Insights
+- Pico horário de vendas: **10h**  
+- Melhor dia de desempenho: **Terça-feira**  
+- Produto mais lucrativo: **Latte**  
+- Pagamento com **Cartão representa 97,2%** da receita total  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 Tecnologias Utilizadas
+
+**Frontend**
+- React + Vite
+- Tailwind CSS
+- Recharts
+- Lucide React Icons
+
+**Backend / Dados**
+- Python (pandas, matplotlib)
+- ETL e Análise Exploratória de Dados (EDA)
+- Exportação de relatórios em HTML e CSV
+
+---
+
+## 🚀 Como Executar Localmente
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/LeticiaPaesano/coffee-vending-etl-eda-analytics.git
+
+2. Acesse o projeto React:
+```
+cd coffee-vending-etl-eda-analytics/cafe-dashboard
+```
+
+3. Instale as dependências:
+```
+npm install
+```
+
+4. Inicie o servidor local:
+```
+npm run dev
+```
+
+
+
