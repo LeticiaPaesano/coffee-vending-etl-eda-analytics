@@ -38,8 +38,8 @@ O projeto conecta os dados processados em Python (ETL e EDA) a uma interface web
 ## 🚀 Como Executar Localmente
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/LeticiaPaesano/coffee-vending-etl-eda-analytics.git
+```
+git clone https://github.com/LeticiaPaesano/coffee-vending-etl-eda-analytics.git
 
 2. Acesse o projeto React:
 ```
