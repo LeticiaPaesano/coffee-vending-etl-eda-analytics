@@ -239,7 +239,7 @@ Período da tarde representa 40,7% da receita.
 </details>
 
 <details>
-<summary><strong>🔥 Top 10 Horários de Pico/strong></summary>
+<summary><strong>🔥 Top 10 Horários de Pico</strong></summary>
 <br>
 
 | Horário | Vendas | % Total |   Receita | Ticket |
