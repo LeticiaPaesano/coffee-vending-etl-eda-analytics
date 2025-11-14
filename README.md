@@ -33,8 +33,6 @@ Dashboard criado em **React + Vite + Tailwind + Recharts**, hospedado no GitHub 
 
 Este projeto consiste na análise completa das vendas de uma máquina automática de café, abrangendo:
 
-**3.636 transações**  
-
 **Período analisado:** 01/03/2024 → 23/03/2025     
 
 **Local:** Ucrânia (UTC+2)   
