@@ -10,22 +10,23 @@ export default function CafeDashboard() {
 
   // 1. Análise Horária
   const horariaData = [
-    { hora: '07h', vendas: 235, receita: 7017.88, ticket: 29.86, periodo: 'Manhã', pico: false },
+    { hora: '06h', vendas: 5, receita: 149.40, ticket: 29.88, periodo: 'Manhã', pico: false },
+    { hora: '07h', vendas: 91, receita: 2940.02, ticket: 32.31, periodo: 'Manhã', pico: false },
     { hora: '08h', vendas: 235, receita: 7017.88, ticket: 29.86, periodo: 'Manhã', pico: false },
     { hora: '09h', vendas: 247, receita: 7429.28, ticket: 30.08, periodo: 'Manhã', pico: false },
     { hora: '10h', vendas: 349, receita: 10994.52, ticket: 31.50, periodo: 'Manhã', pico: true },
     { hora: '11h', vendas: 294, receita: 8849.10, ticket: 30.10, periodo: 'Manhã', pico: true },
     { hora: '12h', vendas: 249, receita: 7668.62, ticket: 30.80, periodo: 'Tarde', pico: false },
-    { hora: '13h', vendas: 200, receita: 6000, ticket: 30.00, periodo: 'Tarde', pico: false },
+    { hora: '13h', vendas: 227, receita: 7108.76, ticket: 31.32, periodo: 'Tarde', pico: false },
     { hora: '14h', vendas: 228, receita: 7265.80, ticket: 31.87, periodo: 'Tarde', pico: false },
     { hora: '15h', vendas: 245, receita: 7789.02, ticket: 31.79, periodo: 'Tarde', pico: true },
     { hora: '16h', vendas: 283, receita: 9221.60, ticket: 32.59, periodo: 'Tarde', pico: true },
     { hora: '17h', vendas: 244, receita: 7925.00, ticket: 32.48, periodo: 'Tarde', pico: true },
-    { hora: '18h', vendas: 180, receita: 5400, ticket: 30.00, periodo: 'Noite', pico: false },
+    { hora: '18h', vendas: 220, receita: 7235.60, ticket: 32.89, periodo: 'Noite', pico: false },
     { hora: '19h', vendas: 235, receita: 7966.96, ticket: 33.90, periodo: 'Noite', pico: true },
-    { hora: '20h', vendas: 220, receita: 6600, ticket: 30.00, periodo: 'Noite', pico: false },
-    { hora: '21h', vendas: 200, receita: 6000, ticket: 30.00, periodo: 'Noite', pico: false },
-    { hora: '22h', vendas: 109, receita: 3255.02, ticket: 29.86, periodo: 'Noite', pico: false }
+    { hora: '20h', vendas: 171, receita: 5656.92, ticket: 30.08, periodo: 'Noite', pico: false },
+    { hora: '21h', vendas: 197, receita: 6465.94, ticket: 32.82, periodo: 'Noite', pico: false },
+    { hora: '22h', vendas: 116, receita: 3747.16, ticket: 32.30, periodo: 'Noite', pico: false }
   ];
 
   // 2. Método de Pagamento
@@ -93,12 +94,19 @@ export default function CafeDashboard() {
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
+      const label = payload[0].payload.hora || payload[0].payload.dia || payload[0].payload.mes || payload[0].payload.name;
+      
       return (
-        <div className="p-3 rounded shadow-xl border-2" style={{ backgroundColor: CORES.muitoClaro, borderColor: CORES.escuro }}>
-          <p className="text-sm font-bold text-white">{payload[0].payload.hora || payload[0].payload.dia || payload[0].payload.mes}</p>
+        <div className="bg-white p-2 rounded shadow-lg border-2" style={{ borderColor: CORES.escuro }}>
+          <p className="text-sm font-bold" style={{ color: CORES.escuro }}>{label}</p>
           {payload.map((entry, idx) => (
-            <p key={idx} className="text-xs text-white">
-              {entry.name}: {typeof entry.value === 'number' && entry.value > 100 ? `R$ ${entry.value.toLocaleString('pt-BR')}` : entry.value}
+            <p key={idx} className="text-xs" style={{ color: entry.color }}>
+              {entry.name}: {' '}
+              {entry.name === 'receita' || entry.name === 'ticket' || entry.name === 'value' ? (
+                entry.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 })
+              ) : (
+                entry.value.toLocaleString('pt-BR')
+              )}
             </p>
           ))}
         </div>
@@ -326,30 +334,31 @@ export default function CafeDashboard() {
                   <div key={idx} className="p-4 rounded-lg" style={{ backgroundColor: CORES.muitoClaro }}>
                     <p className="font-bold" style={{ color: CORES.escuro }}>{metodo.name}</p>
                     <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-                      <p>Transações: <strong>{metodo.transacoes.toLocaleString('pt-BR')}</strong></p>
-                      <p>Receita: <strong>R$ {metodo.value.toLocaleString('pt-BR')}</strong></p>
+                      <p>Transações: <strong>{metodo.transacoes.toLocaleString('uk-UA')}</strong></p>
+                      <p>Receita: <strong>{metodo.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
                       <p>Percentual: <strong>{metodo.percent}%</strong></p>
-                      <p>Ticket: <strong>R$ {(metodo.value / metodo.transacoes).toFixed(2)}</strong></p>
+                      <p>Ticket: <strong>{(metodo.value / metodo.transacoes).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
+
+          {/* FOOTER - INSIGHTS / RECOMENDAÇÕES */}
+          <div className="mt-12 p-6 rounded-lg text-white" style={{ backgroundColor: CORES.escuro }}>
+            <h3 className="text-xl font-bold mb-4">Recomendações Estratégicas</h3>
+            <ul className="space-y-2 text-sm">
+              <li>✓ <strong>Promoções e upsell:</strong> Foco no período noturno, com ticket médio 8% superior, aproveitando comportamento previsível do consumidor.</li>
+              <li>✓ <strong>Priorize produtos Classe A:</strong> Latte, Americano c/ Leite, Cappuccino e Americano geram 74,7% da receita; garantir estoque, manutenção e estratégias promocionais.</li>
+              <li>✓ <strong>Revisão de produtos Classe C:</strong> Baixo impacto financeiro (ex.: Espresso); avaliar ajustes de preço, possível exclusão do portfólio ou estratégias de venda casada para aumentar receita.</li>
+              <li>✓ <strong>Gestão de pagamentos:</strong> Cartão domina 97,6% das transações; oportunidade de renegociação de MDR e otimização de custos operacionais. Incentivar pagamento em dinheiro oferecendo brindes ou promoções, aproveitando ticket médio mais alto.</li>
+              <li>✓ <strong>Planejamento sazonal:</strong> Picos mensais em setembro/outubro; feriados representam apenas 1,38% da receita, permitindo foco em horários e períodos de maior fluxo.</li>
+              <li>✓ <strong>Horários de pico operacionais:</strong> 10h, 11h, 12h e 16h; reforço de abastecimento e ofertas programadas podem aumentar receita sem custos proporcionais.</li>
+            </ul>
+          </div>
         </div>
       )}
-
-      {/* FOOTER - INSIGHTS */}
-      <div className="mt-12 p-6 rounded-lg text-white" style={{ backgroundColor: CORES.escuro }}>
-        <h3 className="text-xl font-bold mb-4">Recomendações Estratégicas</h3>
-        <ul className="space-y-2 text-sm">
-          <li>✓ <strong>Maximize recursos:</strong> Concentre equipe entre 10h-17h (80.2% das vendas)</li>
-          <li>✓ <strong>Promova receita:</strong> Período noturno com ticket 8% superior – estratégia de upsell</li>
-          <li>✓ <strong>Foque em Classe A:</strong> Latte, Americano c/ Leite e Cappuccino geram 61.7% da receita</li>
-          <li>✓ <strong>Cartão é dominante:</strong> 97.2% da receita – otimize processamento e segurança</li>
-          <li>✓ <strong>Terça é forte:</strong> +5.5% vs média semanal – reforçar estoque e promoções</li>
-        </ul>
-      </div>
     </div>
   );
 }
