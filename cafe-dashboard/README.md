@@ -13,10 +13,13 @@ O projeto conecta os dados processados em Python (ETL e EDA) a uma interface web
 ---
 
 ## 📊 Principais Insights
-- Pico horário de vendas: **10h**  
-- Melhor dia de desempenho: **Terça-feira**  
-- Produto mais lucrativo: **Latte**  
-- Pagamento com **Cartão representa 97,2%** da receita total  
+
+- **Horário com maior volume de vendas:** 10h, com 349 transações.
+- **Dia da semana com maior volume de vendas:** terça-feira, com 585 transações.
+- **Produto com maior receita total:** Latte, com 27.866,30 UAH.
+- **Forma de pagamento predominante:** cartão, responsável por 97,6% das transações e 97,2% da receita total.
+
+*Nota: a análise considera a receita das vendas. Sem dados de custos por produto, não é possível determinar a bebida mais lucrativa.* 
 
 ---
 
