@@ -131,9 +131,9 @@ O ticket médio em dinheiro é aproximadamente 13% superior ao ticket médio no 
 
 ### 📆 Sazonalidade Mensal
 
-Alta concentração entre setembro e outubro — clima mais frio.
+Setembro e outubro apresentam aumento de receita em relação a vários meses anteriores, com destaque para outubro. Esse comportamento indica uma variação sazonal que merece investigação, mas os dados de vendas isoladamente não permitem atribuir o aumento diretamente ao clima.
 
-**📌 Recomendação:** reforçar abastecimento e manutenção preventiva em meses críticos.
+**📌 Recomendação:** planejar o abastecimento e a manutenção com base no histórico de demanda, monitorando também as condições climáticas e os resultados de cada período.
 
 ### 📅 Sazonalidade Semanal
 
@@ -190,21 +190,21 @@ Período da tarde representa 40,7% da receita.
 <summary><strong>📆 ANÁLISE TEMPORAL — Performance Mensal</strong></summary>
 <br>
 
-| Mês/Ano        |   Receita | Vendas | Ticket | % Total | Crescimento                            |
-| -------------- | --------: | -----: | -----: | ------: | -------------------------------------: |
-| Março/2024     |  7,050.20 |    206 |  34.22 |    6.1% |         —                              |
-| Abril/2024     |  6,720.56 |    196 |  34.29 |    5.8% |       -4.7%                            |
-| Maio/2024      |  9,063.42 |    267 |  33.95 |    7.8% |    **+34.9%**                          |
-| Junho/2024     |  7,758.76 |    227 |  34.18 |    6.7% |      -14.4%                            |
-| Julho/2024     |  6,915.94 |    237 |  29.18 |    6.0% |      -10.9%                            |
-| Agosto/2024    |  7,613.84 |    272 |  27.99 |    6.6% |      +10.1%                            |
-| Setembro/2024  |  9,988.64 |    344 |  29.04 |    8.7% |      +31.2%                            |
-| Outubro/2024   | 13,891.16 |    426 |  32.61 |   12.0% |  **+39.1%**                            |
-| Novembro/2024  |  8,590.54 |    259 |  33.17 |    7.4% |      -38.2%                            |
-| Dezembro/2024  |  8,237.74 |    259 |  31.81 |    7.1% |       -4.1%                            |
-| Janeiro/2025   |  6,398.86 |    201 |  31.84 |    5.5% |      -22.3%                            |
-| Fevereiro/2025 | 13,215.48 |    423 |  31.24 |   11.4% |    **+106.5%**                         |
-| Março/2025 (P) |  9,986.44 |    319 |  31.31 |    8.7% |      -24.4% Não comparável diretamente |
+| Mês/Ano        |   Receita | Vendas | Ticket | % Total | Crescimento     |
+| -------------- | --------: | -----: | -----: | ------: | --------------: |
+| Março/2024     |  7,050.20 |    206 |  34.22 |    6.1% |         —       |
+| Abril/2024     |  6,720.56 |    196 |  34.29 |    5.8% |       -4.7%     |
+| Maio/2024      |  9,063.42 |    267 |  33.95 |    7.8% |    **+34.9%**   |
+| Junho/2024     |  7,758.76 |    227 |  34.18 |    6.7% |      -14.4%     |
+| Julho/2024     |  6,915.94 |    237 |  29.18 |    6.0% |      -10.9%     |
+| Agosto/2024    |  7,613.84 |    272 |  27.99 |    6.6% |      +10.1%     |
+| Setembro/2024  |  9,988.64 |    344 |  29.04 |    8.7% |      +31.2%     |
+| Outubro/2024   | 13,891.16 |    426 |  32.61 |   12.0% |  **+39.1%**     |
+| Novembro/2024  |  8,590.54 |    259 |  33.17 |    7.4% |      -38.2%     |
+| Dezembro/2024  |  8,237.74 |    259 |  31.81 |    7.1% |       -4.1%     |
+| Janeiro/2025   |  6,398.86 |    201 |  31.84 |    5.5% |      -22.3%     |
+| Fevereiro/2025 | 13,215.48 |    423 |  31.24 |   11.4% |    **+106.5%**  |
+| Março/2025 (P) |  9,986.44 |    319 |  31.31 |    8.7% |      N/A        |
 
 </details>
 
@@ -272,9 +272,9 @@ Os padrões de consumo são definidos e claramente identificáveis:
 
 O **mix de produtos** mostra concentração relevante: quatro bebidas classificadas como **Classe A** representam **74,7% da receita**, exigindo priorização de estoque, manutenção e estratégias promocionais voltadas a esses itens. Produtos da **Classe C**, com destaque para o Espresso, possuem impacto financeiro mínimo e devem passar por revisão de preço ou possível retirada do portfólio.
 
-O comportamento de pagamento é praticamente homogêneo: **97,6% das transações são realizadas via cartão**. Apesar de o ticket médio em dinheiro ser maior, o volume é insuficiente para gerar impacto real. Essa concentração impõe uma dependência elevada do MDR, o que afeta diretamente a margem. Há oportunidade concreta para renegociação com a adquirente ou ajustes operacionais que reduzam esse custo.
+O comportamento de pagamento é concentrado no cartão, responsável por 97,6% das transações e 97,2% da receita. Embora o ticket médio em dinheiro seja superior, esse meio representa uma parcela pequena do volume total. Recomenda-se avaliar as taxas da adquirente e os custos associados a cada forma de pagamento para identificar possíveis oportunidades de redução de despesas.
 
-O impacto dos **feriados** é insignificante, representando apenas **1,38% da receita anual**, mostrando que ações promocionais nessas datas não são prioridade. Em contrapartida, os **horários de pico (10h, 11h, 12h e 16h)** apresentam padrão consistente e previsível, criando espaço para intervenções táticas como ofertas programadas ou reforço de abastecimento.
+Os feriados representam 1,38% da receita total observada. Esse percentual, por si só, não permite concluir se os feriados aumentam ou reduzem a demanda, pois é necessário considerar a quantidade de dias de cada grupo e comparar o volume médio diário de vendas. Essa análise pode orientar a decisão sobre campanhas específicas nessas datas.
 
 De forma geral, o negócio demonstra operação estável, sazonalidade bem definida e um conjunto claro de oportunidades de otimização: priorização de itens Classe A, revisão estratégica dos produtos Classe C, gestão mais eficiente do MDR, alocação de atenção operacional nos horários de maior fluxo e preparação prévia para os meses mais fortes. Trata-se de um ambiente com previsibilidade elevada, oportunidades de otimização operacional e comercial identificadas a partir dos padrões de vendas.
 
