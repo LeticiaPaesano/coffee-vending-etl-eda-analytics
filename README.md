@@ -39,25 +39,27 @@ Este projeto consiste na análise completa das vendas de uma máquina automátic
 
 **Moeda:** Hryvnia Ucraniana (UAH)  
 
+**Dias com operação:** 381 (conforme validação da base)
+
 **Total de vendas:** 3.636 transações
 
 ## 📈 INDICADORES-CHAVE DE PERFORMANCE (KPIs)
 
-| Indicador             | Valor                   |
-|-----------------------|-------------------------|
-| Período analisado     | 2024-03-01 → 2025-03-23 |
-| Dias com operação     | 381                     |
-| Transações totais     | 3,636                   |
-| Receita total         | 115,431.58 UAH          |
-| Ticket médio          | 31.75 UAH               |
-| Ticket mínimo         | 18.12 UAH               |
-| Ticket máximo         | 40.00 UAH               |
-| Desvio padrão         | 4.92 UAH                |
-| Vendas média/dia      | 9.54                    |
-| Receita média/dia     | 302.97 UAH              |
-| Cartão                | 3,547 (97.6%)           |
-| Dinheiro              | 89 (2.4%)               |
-| Vendas em feriados    | 48 (1.3%)               |
+| Indicador                         | Valor                   |
+|-----------------------------------|-------------------------|
+| Período analisado                 | 2024-03-01 → 2025-03-23 |
+| Dias com operação                 | 381                     |
+| Transações totais                 | 3,636                   |
+| Receita total                     | 115,431.58 UAH          |
+| Ticket médio                      | 31.75 UAH               |
+| Ticket mínimo                     | 18.12 UAH               |
+| Ticket máximo                     | 40.00 UAH               |
+| Desvio padrão                     | 4.92 UAH                |
+| Vendas média/dia                  | 9.54                    |
+| Receita média/dia com operação    | 302.97 UAH              |
+| Cartão                            | 3,547 (97.6%)           |
+| Dinheiro                          | 89 (2.4%)               |
+| Vendas em feriados                | 48 (1.3%)               |
 
 
 ## 📘 Dicionário de Dados (após tratamento do dataset)
@@ -99,34 +101,33 @@ Intervalo de 381 dias permite análises temporais consistentes.
 
 ### ➕ Engenharia de Features
 
-**Variáveis criadas:**
+**Variáveis derivadas:** período do dia, nome do mês, semana do ano, dia da semana e identificação de feriados.
 
-Período do dia - Nome do mês - Semana do ano - Dia da semana - Identificação de feriados - Método de pagamento
+**Variáveis utilizadas na análise:** método de pagamento e demais características disponíveis na base original.
 
-**Benefício:** aumenta a granularidade para modelagem de comportamento e sazonalidade.
+**Benefício:** permite segmentar as vendas e investigar padrões temporais e de comportamento.
 
 ### 💳 Pagamentos
 
-**Cartão** domina 97,6% das vendas e 97,2% da receita.
-**Dinheiro** tem ticket 13% maior.
+**Cartão** representa 97,6% das transações e 97,2% da receita.
+O ticket médio em dinheiro é aproximadamente 13% superior ao ticket médio no cartão.
 
-**📌 Recomendação:** negociar redução de MDR ou incentivar pagamentos offline para mitigar dependência do POS.
+**📌 Recomendação:** avaliar as taxas cobradas pela adquirente e negociar melhores condições, considerando o peso dos pagamentos com cartão na receita. A decisão deve levar em conta os custos operacionais e a margem efetiva de cada meio de pagamento.
 
 ### 🎉 Feriados
 
-- Não aumentam demanda.
+- Foram registradas 48 transações em feriados, equivalentes a 1,3% do volume total.
+- O ticket médio nos feriados foi superior ao observado nos dias normais.
 
-- Ticket ligeiramente maior.
-
-***📌 campanhas em feriados não são prioridade.***
+**📌 Recomendação:** antes de priorizar campanhas em feriados, comparar o volume médio diário de vendas em feriados e dias normais, considerando o número de dias observados e possíveis diferenças de operação.
 
 ### 🛒 Mix de Produtos
 
-**Classe A** concentra 74,7% da receita.
+**Classe A** concentra aproximadamente 74,7% da receita total.
 
-**Classe C** Espresso e Cortado são pouco relevantes.
+**Classe C** reúne Espresso e Cortado, com menor participação individual na receita.
 
-**📌 Recomendação:** reavaliar produtos Classe C e revisar preço do Espresso.
+**📌 Recomendação:** avaliar o desempenho dos produtos Classe C considerando também custos, demanda, margem de contribuição e função no portfólio antes de decidir por alterações de preço ou retirada de itens.
 
 ### 📆 Sazonalidade Mensal
 
@@ -189,21 +190,21 @@ Período da tarde representa 40,7% da receita.
 <summary><strong>📆 ANÁLISE TEMPORAL — Performance Mensal</strong></summary>
 <br>
 
-| Mês/Ano        |   Receita | Vendas | Ticket | % Total | Crescimento |
-| -------------- | --------: | -----: | -----: | ------: | ----------: |
-| Março/2024     |  7,050.20 |    206 |  34.22 |    6.1% |           — |
-| Abril/2024     |  6,720.56 |    196 |  34.29 |    5.8% |       -4.7% |
-| Maio/2024      |  9,063.42 |    267 |  33.95 |    7.8% |  **+34.9%** |
-| Junho/2024     |  7,758.76 |    227 |  34.18 |    6.7% |      -14.4% |
-| Julho/2024     |  6,915.94 |    237 |  29.18 |    6.0% |      -10.9% |
-| Agosto/2024    |  7,613.84 |    272 |  27.99 |    6.6% |      +10.1% |
-| Setembro/2024  |  9,988.64 |    344 |  29.04 |    8.7% |      +31.2% |
-| Outubro/2024   | 13,891.16 |    426 |  32.61 |   12.0% |  **+39.1%** |
-| Novembro/2024  |  8,590.54 |    259 |  33.17 |    7.4% |      -38.2% |
-| Dezembro/2024  |  8,237.74 |    259 |  31.81 |    7.1% |       -4.1% |
-| Janeiro/2025   |  6,398.86 |    201 |  31.84 |    5.5% |      -22.3% |
-| Fevereiro/2025 | 13,215.48 |    423 |  31.24 |   11.4% | **+106.5%** |
-| Março/2025 (P) |  9,986.44 |    319 |  31.31 |    8.7% |      -24.4% |
+| Mês/Ano        |   Receita | Vendas | Ticket | % Total | Crescimento                            |
+| -------------- | --------: | -----: | -----: | ------: | -------------------------------------: |
+| Março/2024     |  7,050.20 |    206 |  34.22 |    6.1% |         —                              |
+| Abril/2024     |  6,720.56 |    196 |  34.29 |    5.8% |       -4.7%                            |
+| Maio/2024      |  9,063.42 |    267 |  33.95 |    7.8% |    **+34.9%**                          |
+| Junho/2024     |  7,758.76 |    227 |  34.18 |    6.7% |      -14.4%                            |
+| Julho/2024     |  6,915.94 |    237 |  29.18 |    6.0% |      -10.9%                            |
+| Agosto/2024    |  7,613.84 |    272 |  27.99 |    6.6% |      +10.1%                            |
+| Setembro/2024  |  9,988.64 |    344 |  29.04 |    8.7% |      +31.2%                            |
+| Outubro/2024   | 13,891.16 |    426 |  32.61 |   12.0% |  **+39.1%**                            |
+| Novembro/2024  |  8,590.54 |    259 |  33.17 |    7.4% |      -38.2%                            |
+| Dezembro/2024  |  8,237.74 |    259 |  31.81 |    7.1% |       -4.1%                            |
+| Janeiro/2025   |  6,398.86 |    201 |  31.84 |    5.5% |      -22.3%                            |
+| Fevereiro/2025 | 13,215.48 |    423 |  31.24 |   11.4% |    **+106.5%**                         |
+| Março/2025 (P) |  9,986.44 |    319 |  31.31 |    8.7% |      -24.4% Não comparável diretamente |
 
 </details>
 
@@ -261,7 +262,7 @@ Período da tarde representa 40,7% da receita.
 
 ## 📌 Conclusão Geral do Projeto
 
-A operação da máquina automática apresenta estabilidade e previsibilidade ao longo dos 381 dias analisados. O volume total de **3.636 transações**, aliado a uma **receita acumulada de 115.431,58 UAH** e **ticket médio de 31,75 UAH**, confirma um negócio consistente, sem variações anormais que comprometam a análise financeira ou operacional.
+A base registra 3.636 transações e receita acumulada de 115.431,58 UAH no período analisado, com ticket médio de 31,75 UAH. As análises temporais permitem identificar variações no volume e na receita ao longo dos meses, dias da semana e horários. Esses padrões oferecem subsídios para decisões operacionais, mas a avaliação da rentabilidade e da estabilidade financeira exige informações adicionais sobre custos, despesas e margens.
 
 Os padrões de consumo são definidos e claramente identificáveis:
 
@@ -275,7 +276,7 @@ O comportamento de pagamento é praticamente homogêneo: **97,6% das transaçõe
 
 O impacto dos **feriados** é insignificante, representando apenas **1,38% da receita anual**, mostrando que ações promocionais nessas datas não são prioridade. Em contrapartida, os **horários de pico (10h, 11h, 12h e 16h)** apresentam padrão consistente e previsível, criando espaço para intervenções táticas como ofertas programadas ou reforço de abastecimento.
 
-De forma geral, o negócio demonstra operação estável, sazonalidade bem definida e um conjunto claro de oportunidades de otimização: priorização de itens Classe A, revisão estratégica dos produtos Classe C, gestão mais eficiente do MDR, alocação de atenção operacional nos horários de maior fluxo e preparação prévia para os meses mais fortes. Trata-se de um ambiente com previsibilidade elevada, margens estáveis e caminhos objetivos para ampliar receita sem acréscimo proporcional de custos.
+De forma geral, o negócio demonstra operação estável, sazonalidade bem definida e um conjunto claro de oportunidades de otimização: priorização de itens Classe A, revisão estratégica dos produtos Classe C, gestão mais eficiente do MDR, alocação de atenção operacional nos horários de maior fluxo e preparação prévia para os meses mais fortes. Trata-se de um ambiente com previsibilidade elevada, oportunidades de otimização operacional e comercial identificadas a partir dos padrões de vendas.
 
 ---
 
