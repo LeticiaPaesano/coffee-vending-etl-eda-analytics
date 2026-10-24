@@ -2,8 +2,8 @@
   <img src="https://github.com/user-attachments/assets/97d2ba6d-dc3f-48ef-9c1a-f124454dbf91" width="900px">
 </p>
 
-<h1 align="center"> ☕ Análise vendas de café (máquina automática)
-<h3 align="center">✅ ETL • ✅ Engenharia de features • ✅ Análise exploratória (EDA) • ✅ Visualizações e estatística descritiva • ✅ Curva ABC • ✅ Índices de sazonalidade • ✅ Dashboard Interativo</h3>
+<h1 align="center"> ☕ Análise vendas de café (máquina automática)</h1>
+<h3 align="center">✅ ETL • ✅ Engenharia de features • ✅ Análise exploratória (EDA) • ✅ Visualizações e estatística descritiva • ✅ Curva ABC • ✅ Análise de sazonalidade • ✅ Dashboard Interativo</h3>
     <p align="center">
       
   <!-- Badges Tecnologias -->
@@ -93,11 +93,9 @@ Este projeto consiste na análise completa das vendas de uma máquina automátic
 
 **📂 Carregamento e Validação**
 
-Base íntegra e sem duplicidades.
+Os 89 nulos estão na coluna `card` e correspondem exatamente às vendas em dinheiro (que não têm cartão associado).
 
-Apenas 89 nulos irrelevantes para análises financeiras.
-
-Intervalo de 381 dias permite análises temporais consistentes.
+A base tem 381 dias com ao menos uma venda, em um intervalo de 388 dias corridos.
 
 ### ➕ Engenharia de Features
 
@@ -110,16 +108,17 @@ Intervalo de 381 dias permite análises temporais consistentes.
 ### 💳 Pagamentos
 
 **Cartão** representa 97,6% das transações e 97,2% da receita.
-O ticket médio em dinheiro é aproximadamente 13% superior ao ticket médio no cartão.
+O ticket médio em dinheiro (35,80) é superior ao do cartão (31,65), mas a comparação não é equivalente: todas as vendas em dinheiro ocorrem entre 01/03/2024 e 03/06/2024, período de preços mais altos, enquanto o cartão cobre toda a série. Na mesma janela e para o mesmo produto, a diferença é de cerca de 3% a 4% (ex.: Latte a 40,00 em dinheiro contra 38,70 no cartão).
 
 **📌 Recomendação:** avaliar as taxas cobradas pela adquirente e negociar melhores condições, considerando o peso dos pagamentos com cartão na receita. A decisão deve levar em conta os custos operacionais e a margem efetiva de cada meio de pagamento.
 
 ### 🎉 Feriados
 
 - Foram registradas 48 transações em feriados, equivalentes a 1,3% do volume total.
-- O ticket médio nos feriados foi superior ao observado nos dias normais.
-
-**📌 Recomendação:** antes de priorizar campanhas em feriados, comparar o volume médio diário de vendas em feriados e dias normais, considerando o número de dias observados e possíveis diferenças de operação.
+- Por dia de operação, os feriados venderam menos: 6,0 vendas/dia (≈ 199 UAH) contra 9,6 vendas/dia (≈ 305 UAH) nos dias normais, considerando 8 feriados e 373 dias normais. Com apenas 8 dias, tratei o resultado como indício, não como conclusão.
+- O ticket médio mais alto nos feriados (33,09) reflete o período: 5 dos 8 feriados ocorreram entre março e junho/2024, quando os preços eram maiores.
+  
+**📌 Recomendação:** não priorizar campanhas em feriados com base nesta amostra. O volume diário foi menor, mas o número é pequeno e a lista de feriados deve ser revisada (24/08 e 25/12 têm vendas e não constam no dicionário).
 
 ### 🛒 Mix de Produtos
 
@@ -129,22 +128,22 @@ O ticket médio em dinheiro é aproximadamente 13% superior ao ticket médio no 
 
 **📌 Recomendação:** avaliar o desempenho dos produtos Classe C considerando também custos, demanda, margem de contribuição e função no portfólio antes de decidir por alterações de preço ou retirada de itens.
 
-### 📆 Sazonalidade Mensal
+### 📆 Variação mensal
 
-Setembro e outubro apresentam aumento de receita em relação a vários meses anteriores, com destaque para outubro. Esse comportamento indica uma variação sazonal que merece investigação, mas os dados de vendas isoladamente não permitem atribuir o aumento diretamente ao clima.
+Outubro/2024 e fevereiro/2025 são os meses de maior receita. A série mistura preço e volume (os preços unitários variaram ao longo do período), e com apenas um ciclo anual não é possível separar sazonalidade de tendência de crescimento. Os dados de vendas isoladamente também não permitem atribuir o aumento ao clima.
 
 **📌 Recomendação:** planejar o abastecimento e a manutenção com base no histórico de demanda, monitorando também as condições climáticas e os resultados de cada período.
 
 ### 📅 Sazonalidade Semanal
 
-Maior consumo: terça-feira
-Menor consumo: domingo
+Maior consumo: terça-feira (≈ 339 UAH por dia operado)
+Menor consumo: domingo (≈ 257 UAH por dia operado)
 
 ### 🕒 Sazonalidade por Horário
 
 Período da tarde representa 40,7% da receita.
 
-**📌 Recomendação:** campanhas “happy hour” (17h–19h).
+**📌 Recomendação:** reforçar abastecimento e atenção operacional nos horários de maior volume (10h–11h e 16h, conforme o Top 10). A janela de 17h–19h aparece no ranking, mas não é o pico; uma campanha ali deve ser testada antes de ser adotada.
 
 <details>
 <summary><strong>💳 ANÁLISE POR MÉTODO DE PAGAMENTO</strong></summary>
@@ -157,6 +156,7 @@ Período da tarde representa 40,7% da receita.
 | **Dinheiro** | 89         | 2.4%     | 3,186.00      | 2.8%      | 35.80        |
 
 </details>
+<img width="548" height="295" alt="image" src="https://github.com/user-attachments/assets/7695d8f7-8864-45a0-8aca-24223426277d" />
 
 <details>
 <summary><strong>📅 IMPACTO DOS FERIADOS NAS VENDAS</strong></summary>
@@ -185,6 +185,7 @@ Período da tarde representa 40,7% da receita.
 | Espresso            |      2,814.28 |  134 |       21.00 |     2.44% |     100.00% |  C  |
 
 </details>
+<img width="562" height="476" alt="image" src="https://github.com/user-attachments/assets/b767c1a3-9a5e-46c7-8297-4b4a8580c1cb" />
 
 <details>
 <summary><strong>📆 ANÁLISE TEMPORAL — Performance Mensal</strong></summary>
@@ -207,9 +208,7 @@ Período da tarde representa 40,7% da receita.
 | Março/2025 (P) |  9,986.44 |    319 |  31.31 |    8.7% |      N/A        |
 
 </details>
-
-<img width="2113" height="1436" alt="download" src="https://github.com/user-attachments/assets/dbe75fb1-c66c-4c7f-a920-6fcd9a7942e3" />
-
+<img width="555" height="300" alt="image" src="https://github.com/user-attachments/assets/50bb28d2-a669-4e9c-8713-c407999067df" />
 
 <details>
 <summary><strong>📅 SAZONALIDADE — Dia da Semana</strong></summary>
@@ -226,6 +225,7 @@ Período da tarde representa 40,7% da receita.
 | Domingo |    434 | 13,858.06 |  31.93 | **12.0%** |
 
 </details>
+<img width="553" height="345" alt="image" src="https://github.com/user-attachments/assets/ee515f0e-6a03-4add-a963-6cd18e2ed419" />
 
 <details>
 <summary><strong>🕒 SAZONALIDADE — Períodos do Dia</strong></summary>
@@ -238,6 +238,7 @@ Período da tarde representa 40,7% da receita.
 | Noite   |    944 |    26.0% | 31,221.98 |     27.0% |  33.07 |
 
 </details>
+<img width="552" height="293" alt="image" src="https://github.com/user-attachments/assets/752a6931-bb19-4dd5-8479-7245d1c3f704" />
 
 <details>
 <summary><strong>🔥 Top 10 Horários de Pico</strong></summary>
@@ -264,48 +265,16 @@ Período da tarde representa 40,7% da receita.
 
 A base registra 3.636 transações e receita acumulada de 115.431,58 UAH no período analisado, com ticket médio de 31,75 UAH. As análises temporais permitem identificar variações no volume e na receita ao longo dos meses, dias da semana e horários. Esses padrões oferecem subsídios para decisões operacionais, mas a avaliação da rentabilidade e da estabilidade financeira exige informações adicionais sobre custos, despesas e margens.
 
-Os padrões de consumo são definidos e claramente identificáveis:
+Os principais padrões observados no período são:
 
-- **Sazonalidade mensal:** picos concentrados entre setembro e outubro, reforçando a influência direta do clima no aumento da demanda.  
+- **Variação mensal:** picos em outubro/2024 e fevereiro/2025. Com apenas um ciclo anual observado, não é possível separar sazonalidade de tendência de crescimento, nem atribuir o efeito ao clima.
 - **Ciclo semanal:** terça-feira é o melhor dia de vendas; domingo apresenta o menor movimento.  
-- **Horários de maior fluxo:** a tarde lidera o desempenho, respondendo por **40,7% da receita**, indicando comportamento dominante e previsível do consumidor.
+- **Horários de maior fluxo:** a tarde lidera o desempenho, respondendo por **40,7% da receita**, indicando o período de maior demanda.
 
-O **mix de produtos** mostra concentração relevante: quatro bebidas classificadas como **Classe A** representam **74,7% da receita**, exigindo priorização de estoque, manutenção e estratégias promocionais voltadas a esses itens. Produtos da **Classe C**, com destaque para o Espresso, possuem impacto financeiro mínimo e devem passar por revisão de preço ou possível retirada do portfólio.
+O **mix de produtos** mostra concentração relevante: quatro bebidas classificadas como **Classe A** representam **74,7% da receita**, exigindo priorização de estoque, manutenção e estratégias promocionais voltadas a esses itens. Produtos da **Classe C**, com destaque para o Espresso, possuem menor participação na receita e devem ser avaliados com dados de custo e margem antes de qualquer decisão de preço ou retirada.
 
-O comportamento de pagamento é concentrado no cartão, responsável por 97,6% das transações e 97,2% da receita. Embora o ticket médio em dinheiro seja superior, esse meio representa uma parcela pequena do volume total. Recomenda-se avaliar as taxas da adquirente e os custos associados a cada forma de pagamento para identificar possíveis oportunidades de redução de despesas.
+O comportamento de pagamento é concentrado no cartão, responsável por 97,6% das transações e 97,2% da receita. O dinheiro só aparece até 03/06/2024, e a diferença de ticket em relação ao cartão decorre do período de preços mais altos, não de comportamento do cliente. Recomenda-se avaliar as taxas da adquirente e os custos associados a cada forma de pagamento para identificar possíveis oportunidades de redução de despesas.
 
-Os feriados representam 1,38% da receita total observada. Esse percentual, por si só, não permite concluir se os feriados aumentam ou reduzem a demanda, pois é necessário considerar a quantidade de dias de cada grupo e comparar o volume médio diário de vendas. Essa análise pode orientar a decisão sobre campanhas específicas nessas datas.
+Os feriados representam 1,38% da receita total observada. Por dia de operação, os 8 feriados registraram menos vendas (6,0 contra 9,6) e menos receita (≈ 199 contra ≈ 305 UAH) que os dias normais. Com amostra tão pequena, o resultado é um indício e não justifica, por si só, campanhas específicas nessas datas.
 
-De forma geral, o negócio demonstra operação estável, sazonalidade bem definida e um conjunto claro de oportunidades de otimização: priorização de itens Classe A, revisão estratégica dos produtos Classe C, gestão mais eficiente do MDR, alocação de atenção operacional nos horários de maior fluxo e preparação prévia para os meses mais fortes. Trata-se de um ambiente com previsibilidade elevada, oportunidades de otimização operacional e comercial identificadas a partir dos padrões de vendas.
-
----
-
-## 📁 Estrutura do Repositório
-
-* **coffee-vending-etl-eda-analytics/**
-    * **Dados tratados/**
-        * `vendas_cafe_tratado.csv` (dados tratados)
-        * `vendas_cafe_tratado.xlsx` (dados tratados)
-    * **cafe-dashboard/**
-        * **public/**
-        * **src/**
-        * `.gitignore`
-        * `README.md` (instruções do dashboard)
-        * `eslint.config.js`
-        * `index.html`
-        * `package-lock.json`
-        * `package.json`
-        * `postcss.config.js`
-        * `tailwind.config.js`
-        * `vite.config.js`
-    * **Dashboard/**
-    * `Imagem.png` (gráfico)
-    * `README.md` (README principal)
-    * `coffee-vending-etl-eda-analytics.ipynb` (Notebook Python)
-    * `index_1.csv` (dados não tratados)
-
-
-
-
-
-
+De forma geral, o negócio demonstra padrões semanais e horários bem definidos e um conjunto claro de oportunidades de otimização: priorização de itens Classe A, avaliação dos produtos Classe C com dados de custo e margem, negociação das taxas da adquirente, alocação de atenção operacional nos horários de maior fluxo e acompanhamento da demanda mensal para planejar o abastecimento. Trata-se de um ambiente com oportunidades de otimização operacional e comercial identificadas a partir dos padrões de vendas.
