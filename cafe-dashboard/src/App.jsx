@@ -95,7 +95,7 @@ export default function CafeDashboard() {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const label = payload[0].payload.hora || payload[0].payload.dia || payload[0].payload.mes || payload[0].payload.name;
-      
+
       return (
         <div className="bg-white p-2 rounded shadow-lg border-2" style={{ borderColor: CORES.escuro }}>
           <p className="text-sm font-bold" style={{ color: CORES.escuro }}>{label}</p>
@@ -139,11 +139,10 @@ export default function CafeDashboard() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === tab.id
-                ? 'text-white shadow-lg'
-                : 'border-2 text-gray-700'
-            }`}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${activeTab === tab.id
+              ? 'text-white shadow-lg'
+              : 'border-2 text-gray-700'
+              }`}
             style={{
               backgroundColor: activeTab === tab.id ? CORES.escuro : 'white',
               borderColor: CORES.escuro
@@ -248,7 +247,7 @@ export default function CafeDashboard() {
                 const receita = produtos.reduce((sum, p) => sum + p.receita, 0);
                 const percentual = (receita / abcData.reduce((sum, p) => sum + p.receita, 0) * 100).toFixed(1);
                 return (
-                  <div key={classe} className="p-4 rounded-lg text-white text-center" 
+                  <div key={classe} className="p-4 rounded-lg text-white text-center"
                     style={{ backgroundColor: classe === 'A' ? CORES.escuro : classe === 'B' ? CORES.medio : CORES.claro }}>
                     <p className="text-2xl font-bold">Classe {classe}</p>
                     <p className="text-sm mt-2">{produtos.length} produtos | {percentual}% receita</p>
@@ -341,9 +340,11 @@ export default function CafeDashboard() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
