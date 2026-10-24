@@ -341,24 +341,9 @@ export default function CafeDashboard() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-
-          {/* FOOTER - INSIGHTS / RECOMENDAÇÕES */}
-          <div className="mt-12 p-6 rounded-lg text-white" style={{ backgroundColor: CORES.escuro }}>
-            <h3 className="text-xl font-bold mb-4">Recomendações Estratégicas</h3>
-            <ul className="space-y-2 text-sm">
-              <li>✓ <strong>Promoções e upsell:</strong> Foco no período noturno, com ticket médio 8% superior, aproveitando comportamento previsível do consumidor.</li>
-              <li>✓ <strong>Priorize produtos Classe A:</strong> Latte, Americano c/ Leite, Cappuccino e Americano geram 74,7% da receita; garantir estoque, manutenção e estratégias promocionais.</li>
-              <li>✓ <strong>Revisão de produtos Classe C:</strong> Baixo impacto financeiro (ex.: Espresso); avaliar ajustes de preço, possível exclusão do portfólio ou estratégias de venda casada para aumentar receita.</li>
-              <li>✓ <strong>Gestão de pagamentos:</strong> Cartão domina 97,6% das transações; oportunidade de renegociação de MDR e otimização de custos operacionais. Incentivar pagamento em dinheiro oferecendo brindes ou promoções, aproveitando ticket médio mais alto.</li>
-              <li>✓ <strong>Planejamento sazonal:</strong> Picos mensais em setembro/outubro; feriados representam apenas 1,38% da receita, permitindo foco em horários e períodos de maior fluxo.</li>
-              <li>✓ <strong>Horários de pico operacionais:</strong> 10h, 11h, 12h e 16h; reforço de abastecimento e ofertas programadas podem aumentar receita sem custos proporcionais.</li>
-            </ul>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
