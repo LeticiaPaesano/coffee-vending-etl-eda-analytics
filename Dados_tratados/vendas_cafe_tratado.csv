@@ -1,4 +1,4 @@
-﻿date,datetime,coffee_name,hour,hora_numerica,tipo_pagamento,valor_hryvnia,dia_semana_num,dia_semana,mes_num,mes_nome,ano,semana_ano,dia_mes,mes_ano,periodo_dia,feriado_nome
+ddate,datetime,coffee_name,hour,hora_numerica,tipo_pagamento,valor_hryvnia,dia_semana_num,dia_semana,mes_num,mes_nome,ano,semana_ano,dia_mes,mes_ano,periodo_dia,feriado_nome
 2024-03-01,2024-03-01 10:15:50.520,Latte,10:15,10,Cartão,38.7,4,Sexta-feira,3,Março,2024,9,1,Março/2024,Manhã (07h-11h),-
 2024-03-01,2024-03-01 12:19:22.539,Hot Chocolate,12:19,12,Cartão,38.7,4,Sexta-feira,3,Março,2024,9,1,Março/2024,Tarde (12h-17h),-
 2024-03-01,2024-03-01 12:20:18.089,Hot Chocolate,12:20,12,Cartão,38.7,4,Sexta-feira,3,Março,2024,9,1,Março/2024,Tarde (12h-17h),-
