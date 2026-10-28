@@ -59,7 +59,7 @@ Este projeto consiste na análise completa das vendas de uma máquina automátic
 | Receita média/dia com operação    | 302.97 UAH              |
 | Cartão                            | 3,547 (97.6%)           |
 | Dinheiro                          | 89 (2.4%)               |
-| Vendas em feriados                | 48 (1.3%)               |
+| Vendas em datas especiais cadastradas | 48 (1.3%)               |
 
 
 ## 📘 Dicionário de Dados (após tratamento do dataset)
@@ -78,14 +78,14 @@ Este projeto consiste na análise completa das vendas de uma máquina automátic
 | `semana_ano`    | Número da semana no ano              |
 | `dia_mes`       | Dia do mês                           |
 | `periodo_dia`   | Período do dia (manhã, tarde, noite) |
-| `feriado_nome`  | Nome do feriado, quando aplicável    |
+| `feriado_nome`  | Nome da data especial cadastrada para referência de calendário |
 
 # 🎯 Objetivos do Projeto
 
 - Identificar o mix de produtos mais rentável (Curva ABC).
 - Detectar padrões de sazonalidade: horários, dias da semana e meses de maior fluxo.
 - Analisar KPIs financeiros: receita total, ticket médio e frequência de vendas.
-- Avaliar o impacto de feriados no volume de vendas.
+- Comparar descritivamente as vendas em datas especiais cadastradas, sem presumir causalidade.
 
 ---
 
@@ -99,7 +99,7 @@ A base tem 381 dias com ao menos uma venda, em um intervalo de 388 dias corridos
 
 ### ➕ Engenharia de Features
 
-**Variáveis derivadas:** período do dia, nome do mês, semana do ano, dia da semana e identificação de feriados.
+**Variáveis derivadas:** período do dia, nome do mês, semana do ano, dia da semana e identificação de datas especiais cadastradas.
 
 **Variáveis utilizadas na análise:** método de pagamento e demais características disponíveis na base original.
 
@@ -112,13 +112,13 @@ O ticket médio em dinheiro (35,80) é superior ao do cartão (31,65), mas a com
 
 **📌 Recomendação:** avaliar as taxas cobradas pela adquirente e negociar melhores condições, considerando o peso dos pagamentos com cartão na receita. A decisão deve levar em conta os custos operacionais e a margem efetiva de cada meio de pagamento.
 
-### 🎉 Feriados
+### 📅 Datas especiais cadastradas
 
-- Foram registradas 48 transações em feriados, equivalentes a 1,3% do volume total.
-- Por dia de operação, os feriados venderam menos: 6,0 vendas/dia (≈ 199 UAH) contra 9,6 vendas/dia (≈ 305 UAH) nos dias normais, considerando 8 feriados e 373 dias normais. Com apenas 8 dias, tratei o resultado como indício, não como conclusão.
-- O ticket médio mais alto nos feriados (33,09) reflete o período: 5 dos 8 feriados ocorreram entre março e junho/2024, quando os preços eram maiores.
-  
-**📌 Recomendação:** não priorizar campanhas em feriados com base nesta amostra. O volume diário foi menor, mas o número é pequeno e a lista de feriados deve ser revisada (24/08 e 25/12 têm vendas e não constam no dicionário).
+- Foram registradas 48 transações em datas classificadas no dicionário, equivalentes a 1,3% do volume total.
+- Nos 8 dias classificados como especiais, foram observadas em média 6,0 vendas e cerca de 199 UAH de receita por dia com vendas; nos demais 373 dias com vendas, as médias foram de 9,6 transações e cerca de 305 UAH por dia.
+- O ticket médio das transações classificadas como data especial foi de 33,09 UAH, contra 31,73 UAH nos demais dias.
+
+Esses valores são uma comparação descritiva da amostra. A classificação serve como referência de calendário: não confirma que todas as datas sejam feriados oficiais, nem demonstra que elas tenham causado diferenças nas vendas. A lista de datas é uma seleção cadastrada para análise, não um calendário oficial completo.
 
 ### 🛒 Mix de Produtos
 
@@ -159,13 +159,13 @@ Período da tarde representa 40,7% da receita.
 <img width="548" height="295" alt="image" src="https://github.com/user-attachments/assets/7695d8f7-8864-45a0-8aca-24223426277d" />
 
 <details>
-<summary><strong>📅 IMPACTO DOS FERIADOS NAS VENDAS</strong></summary>
+<summary><strong>📅 VENDAS EM DATAS ESPECIAIS CADASTRADAS</strong></summary>
 <br>
 
 | Dia            | Transações | Receita    | Ticket Médio | % Receita |
 | -------------- | ---------- | ---------- | ------------ | --------- |
-| **Dia normal** | 3.588      | 113,843.48 | 31.73        | 98.62%    |
-| **Feriado**    | 48         | 1,588.10   | 33.09        | 1.38%     |
+| **Sem data especial cadastrada** | 3.588 | 113,843.48 | 31.73 | 98.62% |
+| **Data especial cadastrada** | 48 | 1,588.10 | 33.09 | 1.38% |
 
 </details>
 
@@ -195,7 +195,7 @@ Período da tarde representa 40,7% da receita.
 | -------------- | --------: | -----: | -----: | ------: | --------------: |
 | Março/2024     |  7,050.20 |    206 |  34.22 |    6.1% |         —       |
 | Abril/2024     |  6,720.56 |    196 |  34.29 |    5.8% |       -4.7%     |
-| Maio/2024      |  9,063.42 |    267 |  33.95 |    7.8% |    **+34.9%**   |
+| Maio/2024      |  9,063.42 |    267 |  33.95 |    7.9% |    **+34.9%**   |
 | Junho/2024     |  7,758.76 |    227 |  34.18 |    6.7% |      -14.4%     |
 | Julho/2024     |  6,915.94 |    237 |  29.18 |    6.0% |      -10.9%     |
 | Agosto/2024    |  7,613.84 |    272 |  27.99 |    6.6% |      +10.1%     |
@@ -233,9 +233,9 @@ Período da tarde representa 40,7% da receita.
 
 | Período | Vendas | % Vendas |   Receita | % Receita | Ticket |
 | ------- | -----: | -------: | --------: | --------: | -----: |
-| Manhã   |  1,216 |    33.4% | 37,230.80 |     32.3% |  30.62 |
-| Tarde   |  1,476 |    40.6% | 46,978.80 |     40.7% |  31.83 |
-| Noite   |    944 |    26.0% | 31,221.98 |     27.0% |  33.07 |
+| Manhã (06h–11h) | 1,221 | 33.6% | 37,380.20 | 32.4% | 30.61 |
+| Tarde (12h–17h) | 1,476 | 40.6% | 46,978.80 | 40.7% | 31.83 |
+| Noite (18h–23h) | 939 | 25.8% | 31,072.58 | 26.9% | 33.09 |
 
 </details>
 <img width="552" height="293" alt="image" src="https://github.com/user-attachments/assets/752a6931-bb19-4dd5-8479-7245d1c3f704" />
@@ -275,6 +275,6 @@ O **mix de produtos** mostra concentração relevante: quatro bebidas classifica
 
 O comportamento de pagamento é concentrado no cartão, responsável por 97,6% das transações e 97,2% da receita. O dinheiro só aparece até 03/06/2024, e a diferença de ticket em relação ao cartão decorre do período de preços mais altos, não de comportamento do cliente. Recomenda-se avaliar as taxas da adquirente e os custos associados a cada forma de pagamento para identificar possíveis oportunidades de redução de despesas.
 
-Os feriados representam 1,38% da receita total observada. Por dia de operação, os 8 feriados registraram menos vendas (6,0 contra 9,6) e menos receita (≈ 199 contra ≈ 305 UAH) que os dias normais. Com amostra tão pequena, o resultado é um indício e não justifica, por si só, campanhas específicas nessas datas.
+As datas especiais cadastradas representam 1,38% da receita total observada. Nos dias classificados, houve 48 transações, com ticket médio de 33,09 UAH. Essa comparação é descritiva e não comprova que as datas tenham causado diferenças nas vendas.
 
 De forma geral, o negócio demonstra padrões semanais e horários bem definidos e um conjunto claro de oportunidades de otimização: priorização de itens Classe A, avaliação dos produtos Classe C com dados de custo e margem, negociação das taxas da adquirente, alocação de atenção operacional nos horários de maior fluxo e acompanhamento da demanda mensal para planejar o abastecimento. Trata-se de um ambiente com oportunidades de otimização operacional e comercial identificadas a partir dos padrões de vendas.
