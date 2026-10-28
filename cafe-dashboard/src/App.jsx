@@ -77,9 +77,9 @@ export default function CafeDashboard() {
 
   // 6. Períodos do Dia
   const periodosDia = [
-    { periodo: 'Manhã (07h-11h)', vendas: 1216, receita: 37230.80, ticket: 30.62, percent: 33.4 },
+    { periodo: 'Manhã (06h-11h)', vendas: 1221, receita: 37380.20, ticket: 30.61, percent: 33.6 },
     { periodo: 'Tarde (12h-17h)', vendas: 1476, receita: 46978.80, ticket: 31.83, percent: 40.6 },
-    { periodo: 'Noite (18h-22h)', vendas: 944, receita: 31221.98, ticket: 33.07, percent: 26.0 }
+    { periodo: 'Noite (18h-23h)', vendas: 939, receita: 31072.58, ticket: 33.09, percent: 25.8 }
   ];
 
   // Paleta de cores
@@ -103,7 +103,7 @@ export default function CafeDashboard() {
             <p key={idx} className="text-xs" style={{ color: entry.color }}>
               {entry.name}: {' '}
               {entry.name === 'receita' || entry.name === 'ticket' || entry.name === 'value' ? (
-                entry.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 })
+                `${entry.value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH`
               ) : (
                 entry.value.toLocaleString('pt-BR')
               )}
@@ -123,7 +123,8 @@ export default function CafeDashboard() {
           <span className="text-5xl">☕</span>
           <div>
             <h1 className="text-4xl font-bold" style={{ color: CORES.escuro }}>Dashboard Executivo – Café</h1>
-            <p style={{ color: CORES.medio }} className="text-sm mt-1">Análise completa de vendas, produtos e performance</p>
+            <p style={{ color: CORES.medio }} className="text-sm mt-1">Análise de vendas, produtos e padrões temporais</p>
+            <p style={{ color: CORES.medio }} className="text-sm mt-1">Período: 01/03/2024 a 23/03/2025 · Ucrânia (UTC+2) · Valores em UAH</p>
           </div>
         </div>
       </div>
@@ -134,7 +135,8 @@ export default function CafeDashboard() {
           { id: 'overview', label: 'Visão Geral' },
           { id: 'produtos', label: 'Produtos (ABC)' },
           { id: 'temporal', label: 'Temporal' },
-          { id: 'pagamento', label: 'Pagamentos' }
+          { id: 'pagamento', label: 'Pagamentos' },
+          { id: 'datas', label: 'Datas especiais' }
         ].map(tab => (
           <button
             key={tab.id}
@@ -277,6 +279,7 @@ export default function CafeDashboard() {
                   <Line type="monotone" dataKey="receita" stroke={CORES.escuro} strokeWidth={3} dot={{ fill: CORES.escuro }} />
                 </LineChart>
               </ResponsiveContainer>
+              <p className="text-sm mt-3" style={{ color: CORES.medio }}>Mar/2025 é um mês parcial, com dados até 23/03; compare com cautela.</p>
             </div>
 
             {/* Semanal */}
@@ -292,7 +295,7 @@ export default function CafeDashboard() {
                 </BarChart>
               </ResponsiveContainer>
               <div className="mt-4 p-3 rounded" style={{ backgroundColor: CORES.muitoClaro }}>
-                <p className="text-sm" style={{ color: CORES.escuro }}><strong>Melhor:</strong> Terça (R$ 18.637) | <strong>Pior:</strong> Domingo (R$ 13.858)</p>
+                <p className="text-sm" style={{ color: CORES.escuro }}><strong>Maior receita:</strong> Terça (18.637,38 UAH) | <strong>Menor receita:</strong> Domingo (13.858,06 UAH)</p>
               </div>
             </div>
           </div>
@@ -334,14 +337,45 @@ export default function CafeDashboard() {
                     <p className="font-bold" style={{ color: CORES.escuro }}>{metodo.name}</p>
                     <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
                       <p>Transações: <strong>{metodo.transacoes.toLocaleString('uk-UA')}</strong></p>
-                      <p>Receita: <strong>{metodo.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
+                      <p>Receita: <strong>{metodo.value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH</strong></p>
                       <p>Percentual: <strong>{metodo.percent}%</strong></p>
-                      <p>Ticket: <strong>{(metodo.value / metodo.transacoes).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
+                      <p>Ticket médio: <strong>{(metodo.value / metodo.transacoes).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH</strong></p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 5: DATAS ESPECIAIS */}
+      {activeTab === 'datas' && (
+        <div className="space-y-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border-l-4" style={{ borderColor: CORES.escuro }}>
+            <h2 className="text-2xl font-bold mb-3" style={{ color: CORES.escuro }}>Vendas em datas especiais cadastradas</h2>
+            <p className="text-sm" style={{ color: CORES.medio }}>
+              A classificação serve como referência de calendário. Ela não confirma que todas as datas sejam feriados oficiais nem demonstra que tenham causado diferenças nas vendas.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              {[
+                { titulo: 'Data especial cadastrada', transacoes: 48, receita: 1588.10, ticket: 33.09, percentual: 1.38 },
+                { titulo: 'Dia sem data especial cadastrada', transacoes: 3588, receita: 113843.48, ticket: 31.73, percentual: 98.62 }
+              ].map((item) => (
+                <div key={item.titulo} className="p-5 rounded-lg" style={{ backgroundColor: CORES.muitoClaro }}>
+                  <h3 className="text-lg font-bold mb-4" style={{ color: CORES.escuro }}>{item.titulo}</h3>
+                  <div className="space-y-2 text-sm" style={{ color: CORES.preto }}>
+                    <p>Transações: <strong>{item.transacoes.toLocaleString('pt-BR')}</strong></p>
+                    <p>Receita: <strong>{item.receita.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH</strong></p>
+                    <p>Ticket médio: <strong>{item.ticket.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH</strong></p>
+                    <p>Participação na receita total: <strong>{item.percentual.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</strong></p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm mt-5" style={{ color: CORES.medio }}>
+              Interpretação: comparação descritiva dos registros classificados; não permite atribuir causalidade às datas especiais.
+            </p>
           </div>
         </div>
       )}
