@@ -14,12 +14,16 @@ O projeto conecta os dados processados em Python (ETL e EDA) a uma interface web
 
 ## 📊 Principais Insights
 
+**Base analisada:** 01/03/2024 a 23/03/2025 · Ucrânia (UTC+2) · Valores em hryvnia ucraniana (UAH).
+
 - **Horário com maior volume de vendas:** 10h, com 349 transações.
 - **Dia da semana com maior volume de vendas:** terça-feira, com 585 transações.
 - **Produto com maior receita total:** Latte, com 27.866,30 UAH.
 - **Forma de pagamento predominante:** cartão, responsável por 97,6% das transações e 97,2% da receita total.
+- **Período de maior movimento:** tarde, com 1.476 transações (40,6%) e receita de 46.978,80 UAH (40,7%).
+- **Datas especiais cadastradas:** 48 transações, receita de 1.588,10 UAH (1,38% da receita total); classificação descritiva, sem inferência causal.
 
-*Nota: a análise considera a receita das vendas. Sem dados de custos por produto, não é possível determinar a bebida mais lucrativa.* 
+*Nota: os valores monetários estão em UAH. A análise considera receita de vendas; sem dados de custos por produto, não é possível determinar a bebida mais lucrativa.* 
 
 ---
 
