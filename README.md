@@ -29,6 +29,30 @@ Dashboard criado em **React + Vite + Tailwind + Recharts**, hospedado no GitHub 
 
 ---
 
+## 📁 Estrutura do repositório
+
+Os arquivos estão organizados por finalidade: dados originais, análise em Python, dados tratados, imagens de apoio e código do dashboard.
+
+| Arquivo ou pasta | Descrição |
+|---|---|
+| [`index_1.csv`](index_1.csv) | **Base original:** dados brutos das transações de venda, utilizados como ponto de partida para a análise. |
+| [`coffee_vending.ipynb`](coffee_vending.ipynb) | **Notebook Python:** etapas de carregamento, validação, tratamento, criação de variáveis, análise exploratória, indicadores e visualizações. |
+| [`Dados_tratados/`](Dados_tratados/) | **Dados tratados:** versões exportadas após o processamento, disponíveis em CSV e Excel. |
+| [`Dados_tratados/vendas_cafe_tratado.csv`](Dados_tratados/vendas_cafe_tratado.csv) | Base tratada em formato CSV, adequada para leitura por Python e outras ferramentas de análise. |
+| [`Dados_tratados/vendas_cafe_tratado.xlsx`](Dados_tratados/vendas_cafe_tratado.xlsx) | Base tratada em formato Excel, para consulta e exploração em planilhas. |
+| [`Imagens/`](Imagens/) | **Gráficos exportados:** imagens de apoio produzidas para documentar os resultados da análise. |
+| [`cafe-dashboard/`](cafe-dashboard/) | **Dashboard interativo:** código-fonte da aplicação desenvolvida com React, Vite e Tailwind CSS. |
+| [`.github/workflows/deploy-dashboard.yml`](.github/workflows/deploy-dashboard.yml) | **Publicação automatizada:** workflow do GitHub Actions responsável pelo processo de implantação do dashboard no GitHub Pages. |
+
+### 🔎 Como navegar pelo projeto
+
+1. Comece pelo notebook `coffee_vending.ipynb` para acompanhar as etapas da análise.
+2. Consulte `Dados_tratados/` para acessar os arquivos resultantes do tratamento.
+3. Abra o [dashboard publicado](https://leticiapaesano.github.io/coffee-vending-etl-eda-analytics/) para explorar os indicadores e gráficos de forma interativa.
+4. Consulte `Imagens/` para visualizar os gráficos exportados que documentam os resultados.
+
+---
+
 # Contextualização do Projeto
 
 Este projeto consiste na análise completa das vendas de uma máquina automática de café, abrangendo:
