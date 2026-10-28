@@ -156,7 +156,7 @@ Período da tarde representa 40,7% da receita.
 | **Dinheiro** | 89         | 2.4%     | 3,186.00      | 2.8%      | 35.80        |
 
 </details>
-<img width="548" height="295" alt="image" src="https://github.com/user-attachments/assets/7695d8f7-8864-45a0-8aca-24223426277d" />
+<img width="414" height="234" alt="Metodos de Pagamento" src="https://github.com/user-attachments/assets/9020442a-29a9-43a5-b08e-8820867a54b0" />
 
 <details>
 <summary><strong>📅 VENDAS EM DATAS ESPECIAIS CADASTRADAS</strong></summary>
@@ -185,7 +185,7 @@ Período da tarde representa 40,7% da receita.
 | Espresso            |      2,814.28 |  134 |       21.00 |     2.44% |     100.00% |  C  |
 
 </details>
-<img width="562" height="476" alt="image" src="https://github.com/user-attachments/assets/b767c1a3-9a5e-46c7-8297-4b4a8580c1cb" />
+<img width="1243" height="419" alt="Mix de Produtos (Analise ABC)" src="https://github.com/user-attachments/assets/1ae25cab-c032-4a02-9c46-86a2a87bb31f" />
 
 <details>
 <summary><strong>📆 ANÁLISE TEMPORAL — Performance Mensal</strong></summary>
@@ -208,7 +208,7 @@ Período da tarde representa 40,7% da receita.
 | Março/2025 (P) |  9,986.44 |    319 |  31.31 |    8.7% |      N/A        |
 
 </details>
-<img width="555" height="300" alt="image" src="https://github.com/user-attachments/assets/50bb28d2-a669-4e9c-8713-c407999067df" />
+<img width="606" height="264" alt="Performance Mensal" src="https://github.com/user-attachments/assets/3e15fc67-2fb0-4413-b5f2-77a7a8de082c" />
 
 <details>
 <summary><strong>📅 SAZONALIDADE — Dia da Semana</strong></summary>
@@ -225,7 +225,7 @@ Período da tarde representa 40,7% da receita.
 | Domingo |    434 | 13,858.06 |  31.93 | **12.0%** |
 
 </details>
-<img width="553" height="345" alt="image" src="https://github.com/user-attachments/assets/ee515f0e-6a03-4add-a963-6cd18e2ed419" />
+<img width="577" height="277" alt="Performance Semanal" src="https://github.com/user-attachments/assets/fe20fd25-c243-4c25-8379-5d27a06dc2b0" />
 
 <details>
 <summary><strong>🕒 SAZONALIDADE — Períodos do Dia</strong></summary>
@@ -238,7 +238,9 @@ Período da tarde representa 40,7% da receita.
 | Noite (18h–23h) | 939 | 25.8% | 31,072.58 | 26.9% | 33.09 |
 
 </details>
-<img width="552" height="293" alt="image" src="https://github.com/user-attachments/assets/752a6931-bb19-4dd5-8479-7245d1c3f704" />
+<img width="754" height="360" alt="Vendas por periodo" src="https://github.com/user-attachments/assets/be5fdf82-3e1a-4c8f-9ccf-8284c1b5322a" />
+
+<img width="658" height="332" alt="Receita por Periodo" src="https://github.com/user-attachments/assets/efd0fbe3-ca47-4962-9bdd-d0c77b45e2d3" />
 
 <details>
 <summary><strong>🔥 Top 10 Horários de Pico</strong></summary>
@@ -258,6 +260,7 @@ Período da tarde representa 40,7% da receita.
 | 14h     |    228 |    6.3% |  7,265.80 |  31.87 |
 
 </details>
+<img width="1251" height="451" alt="Distribuicao Horaria de Vendas" src="https://github.com/user-attachments/assets/3fd3c541-06c6-4e04-8bc9-4fee27b7460d" />
 
 ---
 
