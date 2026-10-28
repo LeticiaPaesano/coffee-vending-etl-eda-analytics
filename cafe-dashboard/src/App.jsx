@@ -336,7 +336,7 @@ export default function CafeDashboard() {
                   <div key={idx} className="p-4 rounded-lg" style={{ backgroundColor: CORES.muitoClaro }}>
                     <p className="font-bold" style={{ color: CORES.escuro }}>{metodo.name}</p>
                     <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-                      <p>Transações: <strong>{metodo.transacoes.toLocaleString('uk-UA')}</strong></p>
+                      <p>Transações: <strong>{metodo.transacoes.toLocaleString('pt-BR')}</strong></p>
                       <p>Receita: <strong>{metodo.value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH</strong></p>
                       <p>Percentual: <strong>{metodo.percent}%</strong></p>
                       <p>Ticket médio: <strong>{(metodo.value / metodo.transacoes).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} UAH</strong></p>
